@@ -1,5 +1,6 @@
 import React from "react";
 import shortid from 'shortid';
+import s from './ContactForm.module.css';
 
 
 export class ContactForm extends React.Component {
@@ -29,11 +30,12 @@ this.setState({
    render() {
      return (
       <>
-      <form
-      onSubmit={this.handleSubmit}>
+      <form className={s.form}      onSubmit={this.handleSubmit}>
         <label 
+        className={s.lable}
         htmlFor={this.nameInputId}>Name
         <input
+        className={s.input}
           type="text"
           name="name"
           pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?        [a-zA-Zа-яА-Я]*)*$"
@@ -45,8 +47,10 @@ this.setState({
         />
          </label> 
          <label
+         className={s.lable}
          htmlFor={this.numberInputId}>Number 
          <input
+         className={s.input}
          type="tel"
          name="number"
          pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
@@ -57,7 +61,7 @@ this.setState({
          id={this.numberInputId}       />
          </label>
          <button
-          className='button'
+          className={s.button}
           type="submit">
           Add contact
         </button>

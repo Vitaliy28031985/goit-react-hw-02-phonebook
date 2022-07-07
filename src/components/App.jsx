@@ -58,13 +58,25 @@ contacts: pevState.contacts.filter(contact => contact.id !== contactId)
   const filter = this.state.filter;
 
   return (
-   <>
-   <p>Phonebook</p>
+   <div style={{
+   marginLeft: 50,
+   width: 900,
+  }}>
+   <p style={{
+        fontSize: 30,
+        color: '#010101'
+      }}
+    >Phonebook</p>
 <ContactForm onSubmit={this.addContact}/>
-   <p>Contacts</p>
+   <p
+   style={{
+    fontSize: 30,
+    color: '#010101'
+  }}
+   >Contacts</p>
    <Filter value={filter} onChange={this.filterChange}/>
    <ContactList contacts={visibleContacts} onDeleteContact={this.deleteContact}/>
-   </>
+   </div>
   );
 }
 };
