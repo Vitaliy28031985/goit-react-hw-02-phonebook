@@ -12,6 +12,7 @@ number: '',
 nameInputId = shortid.generate();
 numberInpitId = shortid.generate();
 
+
 handleChange = e => {
    const {name, value,} = e.currentTarget;
    this.setState({[name]: value});
@@ -21,32 +22,34 @@ handleSubmit = e => {
 const {name, number} = this.state;
 e.preventDefault();
 this.props.onSubmit(name, number);
+
 this.setState({
    name: '',
    number: ''
  })
 }
 
-   render() {
-     return (
-      <>
-      <form className={s.form}      onSubmit={this.handleSubmit}>
-        <label 
-        className={s.lable}
-        htmlFor={this.nameInputId}>Name
+render() {
+  return (
+    <>
+    <form className={s.form}      
+    onSubmit={this.handleSubmit}>
+    <label 
+      className={s.lable}
+      htmlFor={this.nameInputId}>Name
         <input
         className={s.input}
-          type="text"
-          name="name"
-          pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?        [a-zA-Zа-яА-Я]*)*$"
-          title="Name may contain only letters, apostrophe, dash and         spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
-          required
-          onChange={this.handleChange}
-          value={this.state.name}
-          id={this.nameInputId}
+        type="text"
+        name="name"
+        pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?        [a-zA-Zа-яА-Я]*)*$"
+        title="Name may contain only letters, apostrophe, dash and         spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
+        required
+        onChange={this.handleChange}
+        value={this.state.name}
+        id={this.nameInputId}
         />
-         </label> 
-         <label
+      </label> 
+      <label
          className={s.lable}
          htmlFor={this.numberInputId}>Number 
          <input
@@ -59,14 +62,19 @@ this.setState({
          onChange={this.handleChange}
          value={this.state.number}
          id={this.numberInputId}       />
-         </label>
-         <button
+      </label>
+          <button
           className={s.button}
           type="submit">
           Add contact
-        </button>
+          </button>
       </form>
       </>
      )
    }
 }
+
+
+// ContactForm.propTypes = {
+//    onSubmit: PropTypes.func,
+//    };

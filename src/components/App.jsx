@@ -19,9 +19,9 @@ export class App extends React.Component {
   addContact = (name, number) => {
     const {contacts} = this.state;
     const newContact = {
-      id: shortid.generate(),
-      name,
-      number 
+    id: shortid.generate(),
+    name,
+    number 
     }
     if (contacts.find(contact => contact.name === newContact.name)) {
       alert(`${newContact.name} is already in contacts.`)
@@ -39,7 +39,7 @@ contacts: pevState.contacts.filter(contact => contact.id !== contactId)
   };
 
   filterChange = e => {
-    this.setState({filter: e.currentTarget.value})
+  this.setState({filter: e.currentTarget.value})
   };
 
   getVisibleContacts = () => {
@@ -62,21 +62,21 @@ contacts: pevState.contacts.filter(contact => contact.id !== contactId)
    marginLeft: 50,
    width: 900,
   }}>
-   <p style={{
-        fontSize: 30,
-        color: '#010101'
-      }}
-    >Phonebook</p>
-<ContactForm onSubmit={this.addContact}/>
-   <p
-   style={{
-    fontSize: 30,
-    color: '#010101'
+  <p style={{
+  fontSize: 30,
+  color: '#010101'
   }}
-   >Contacts</p>
-   <Filter value={filter} onChange={this.filterChange}/>
-   <ContactList contacts={visibleContacts} onDeleteContact={this.deleteContact}/>
-   </div>
+  >Phonebook</p>
+<ContactForm onSubmit={this.addContact}/>
+  <p
+  style={{
+  fontSize: 30,
+  color: '#010101'
+  }}
+  >Contacts</p>
+  <Filter value={filter} onChange={this.filterChange}/>
+  <ContactList contacts={visibleContacts} onDeleteContact={this.deleteContact}/>
+  </div>
   );
 }
 };
